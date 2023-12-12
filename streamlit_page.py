@@ -1,11 +1,12 @@
 "Разведочный анализь данных с помощью streamlit"
-import streamlit as st
-import pandas as pd
-from PIL import Image
-import numpy as np
 import os
+
+import numpy as np
+import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import streamlit as st
+from PIL import Image
 from plotly.subplots import make_subplots
 
 
@@ -18,6 +19,7 @@ def preload_content():
 
 
 def histogram(df, column):
+    """ creates histogram and shows outliers """
     fig = go.Figure()
 
     # Добавляем данные
