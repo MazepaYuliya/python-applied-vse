@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 from PIL import Image
 import numpy as np
+import os
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
@@ -97,7 +98,9 @@ def render_page(main_img):
     st.subheader('Проводим разведочный анализ данных о клиентах банка')
     st.image(main_img, width=1000)
 
-    df = pd.read_csv('.\datasets\df_result.csv')
+    current_dir = os.getcwd()
+    file_path = os.path.join(current_dir, 'datasets', 'df_result.csv')
+    df = pd.read_csv(file_path)
     df.drop('Unnamed: 0', axis=1, inplace=True)
 
     st.subheader('**1. Посмотрим на характеристики признаков**')
